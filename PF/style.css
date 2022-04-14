@@ -1,0 +1,234 @@
+* {
+    margin: 0;
+    padding: 0;
+    position: static;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+#page1 {
+    height: 100vh;
+    width: 100%;
+    background-color: #189AB4;
+}
+
+#page2 {
+    height: 200vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(11, 186, 192);
+}
+
+
+#page3 {
+    height: 100vh;
+    width: 100%;
+    background-color: cadetblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header {
+    min-height: 80px;
+    width: 100%;
+    color: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    backdrop-filter: blur(5px) saturate(125%);
+    -webkit-backdrop-filter: blur(5px) saturate(125%);
+    z-index: 1;
+}
+
+.logo {
+    font-size: 3em;
+    margin-left: 0.5em;
+
+}
+
+ul {
+    display: inline;
+    font-size: 2em;
+}
+
+nav ul li {
+    display: inline-block;
+    padding: 0.5em 1em;
+}
+
+nav ul li a {
+    text-decoration: none;
+    font-size: 0.8em;
+    padding: 10px;
+    border-radius: 6rem;
+    color: black;
+}
+
+nav ul li a:hover {
+    transition: 0.5s ease;
+    background-color: #06748a;
+    color: white;
+}
+
+main {
+    height: 100vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+
+}
+
+main .left {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+main .left .name {
+    font-size: 4em;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+main .left .designation {
+    font-size: 1.5em;
+}
+
+main .right {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+}
+
+main .right img {
+    height: 88.5vh;
+    width: 100%;
+}
+
+.container {
+    height: 70vh;
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 30px;
+}
+
+.title {
+    font-size: 4em;
+    font-family: 'League Spartan', sans-serif;
+}
+
+.paragraph {
+    font-size: 1.3em;
+    margin-top: 20px;
+    font-family: 'League Spartan', sans-serif;
+
+}
+
+/* .container2 {
+        margin-top: 20px;
+    } */
+
+.form-label {
+    font-size: 1.2em;
+}
+
+#name-2,
+#email-2,
+.form-submit {
+    height: 5vh;
+    width: 50%;
+    border: none;
+    padding: 1em;
+    border-radius: 10px;
+    margin: 5px;
+    font-family: 'League Spartan', sans-serif;
+    background-color: rgb(200, 233, 226);
+}
+
+#Message-2 {
+    height: 18vh;
+    border: none;
+    border-radius: 10px;
+    padding: 1em;
+    width: 50%;
+    margin: 5px;
+    background-color: rgb(200, 233, 226);
+}
+
+.form-submit {
+    width: 10%;
+    font-size: 1.2em;
+    color: rgb(204, 21, 21);
+    padding: 0;
+}
+
+h1 {
+    font-size: 4em;
+    margin-top: 70px;
+}
+
+.container3 {
+    height: 180vh;
+    width: 100%;
+    /* border: solid; */
+    display: flex;
+    flex-direction: row;
+}
+
+.left2,
+.right2 {
+    /* border: solid; */
+    height: 180vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.box {
+    height: 50vh;
+    width: 80%;
+    font-size: 2em;
+    /* border: solid; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    /* position: relative; */
+}
+
+#connect {
+    position: absolute;
+    margin-top: 70px;
+}
+
+#overlay {
+    height: 35.5vh;
+    width: 49.5%;
+    /* z-index: 9; */
+    background-color: black;
+    opacity: 1%;
+}
+
+#overlay1 {
+    height: 35vh;
+    width: 100%;
+    z-index: 9;
+}
+
+#overlay:hover {
+    /* visibility: hidden; */
+    transition: 0.5s ease;
+    opacity: 30%;
+    background-color: black;
+
+}

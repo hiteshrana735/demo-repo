@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Clock</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cutive+Mono&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Cutive Mono', monospace;
+        }
+
+        .container {
+            height: 100vh;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.980);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        #date,
+        #time {
+            border: solid;
+            text-align: center;
+            color: white;
+            padding-top: 30px;
+            text-shadow: -2px -2px 2px firebrick, 2px 2px 2px blue;
+
+        }
+
+        #date {
+            height: 70px;
+            width: 450px;
+            font-size: 1.8em;
+            border-bottom: 0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            border-top-color: firebrick;
+            border-left-color: blue;
+            border-right-color: blue;
+        }
+
+        #time {
+            height: 100px;
+            width: 700px;
+            font-size: 4em;
+            border-radius: 20px;
+            border-top-color: teal;
+            border-left-color: firebrick;
+            border-right-color: firebrick;
+            border-bottom-color: blue;
+        }
+
+        #name {
+            color: white;
+            font-family:sans-serif;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="date"></div>
+        <div id="time"></div>
+        <div id="name">
+            Hitesh Rana
+        </div>
+    </div>
+    <script>
+        function myClock() {
+            let datediv = document.getElementById("date")
+            let timediv = document.getElementById("time")
+            let months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']
+            let days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+            let d = new Date;
+            let minutes = d.getMinutes();
+            let seconds = d.getSeconds();
+            let hour = d.getHours();
+            let day = d.getDay();
+            let date = d.getDate();
+            let month = d.getMonth();
+            let year = d.getFullYear();
+            let meridian = ""
+            if (hour > 12) {
+                meridian = "PM"
+                hour = hour - 12
+            }
+            else {
+                meridian = "AM"
+            }
+
+            month = months[month].substring(0, 3)
+            day = days[day].substring(0, 3)
+            if (date < 10) {
+                date = "0" + date
+            }
+
+            if (hour < 10) {
+                hour = "0" + hour
+            }
+
+            if (minutes < 10) {
+                minutes = "0" + minutes
+            }
+
+            if (seconds < 10) {
+                seconds = "0" + seconds
+            }
+            datediv.innerHTML = date + " / " + month + " / " + year + " - " + day
+            timediv.innerHTML = hour + " : " + minutes + " : " + seconds + " " + meridian
+        }
+        myClock()
+        setInterval(myClock, 1000)
+
+
+    </script>
+</body>
+
+</html>

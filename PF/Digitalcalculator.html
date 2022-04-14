@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Calculator</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        integrity="sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+
+    }
+
+    .page {
+        height: 100vh;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(243, 223, 136, 0.842);
+    }
+
+    .container {
+        height: 400px;
+        width: 300px;
+        border: solid;
+        border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(221, 53, 53);
+        box-shadow: 15px 10px 15px black;
+    }
+
+    #btn,
+    #btn1,
+    #btn2,
+    #btn3,
+    #btn4 {
+        height: 60px;
+        width: 60px;
+        font-size: 1.5em;
+        margin: 1.5px;
+        background-color: rgb(226, 185, 132);
+        border-radius: 5px;
+    }
+
+    #btn:hover {
+        background-color: rgb(223, 170, 100);
+        outline: 1px solid;
+    }
+
+    #btn1:hover {
+        background-color: rgb(139, 129, 139);
+        outline: 1px solid;
+    }
+
+    #btn2:hover {
+        background-color: rgb(180, 93, 93);
+        outline: 1px solid;
+    }
+
+    #btn3:hover {
+        background-color: rgb(139, 129, 139);
+        outline: 1px solid;
+    }
+
+    #btn4:hover {
+        background-color: rgb(158, 116, 60);
+        outline: 1px solid;
+    }
+
+    #btn1,
+    #btn3 {
+        background-color: rgb(199, 189, 199);
+    }
+
+    #btn2 {
+        background-color: rgb(238, 223, 223);
+    }
+
+    #btn3 {
+        height: 123px;
+        font-size: 2em;
+    }
+
+    #result {
+        height: 50px;
+        width: 250px;
+        margin-left: 1.5px;
+        border: solid;
+        font-size: 2em;
+        border-radius: 5px;
+        margin-bottom: 7PX;
+    }
+</style>
+
+<body>
+    <div class="page">
+        <div class="container">
+            <input type="text" id="result" name="result">
+            <table>
+                <tr>
+                    <td><button id="btn">C</button></td>
+                    <td><button id="btn">%</button></td>
+                    <td><button id="btn4" class="back" style="position: relative;"><span style="opacity: 0; margin-left: -50%; position: absolute;">back</span>
+                        <i class="fas fa-backspace"></i></button></td>
+                    <td><button id="btn1">/</button></td>
+                </tr>
+
+                <tr>
+                    <td><button id="btn">7</button></td>
+                    <td><button id="btn">8</button></td>
+                    <td><button id="btn">9</button></td>
+                    <td><button id="btn1">x</button></td>
+                </tr>
+
+                <tr>
+                    <td><button id="btn">4</button></td>
+                    <td><button id="btn">5</button></td>
+                    <td><button id="btn">6</button></td>
+                    <td><button id="btn1">-</button></td>
+                </tr>
+
+                <tr>
+                    <td><button id="btn">1</button></td>
+                    <td><button id="btn">2</button></td>
+                    <td><button id="btn">3</button></td>
+                    <td rowspan="2"><button id="btn3">+</button></td>
+                </tr>
+
+                <tr>
+                    <td><button id="btn">.</button></td>
+                    <td><button id="btn">0</button></td>
+                    <td><button id="btn2">=</button></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <script>
+
+        let result = document.getElementById('result');
+        buttons = document.querySelectorAll('button');
+        let resultValue = '';
+        for (item of buttons) {
+            item.addEventListener('click', (e) => {
+                buttonText = e.target.innerText;
+                console.log(' ', buttonText);
+
+                if (buttonText == 'x') {
+                    buttonText = '*';
+                    resultValue += buttonText;
+                    result.value = resultValue;
+
+                }
+                else if (buttonText == 'C') {
+                    resultValue = "";
+                    result.value = resultValue;
+                }
+
+                else if (buttonText == '=') {
+                    result.value = eval(resultValue);
+                }
+
+                else if (buttonText == 'back') {
+                    let str = result.value;
+                    str = str.substring(0, str.length - 1);
+                    resultValue = str
+                    result.value = resultValue
+
+                }
+
+                else {
+                    resultValue += buttonText
+                    result.value = resultValue
+                }
+
+
+            })
+        }
+
+
+
+    </script>
+</body>
+
+</html>
